@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #663399; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #663399, 0 0 5px #663399; 
+    }
+    .pace .pace-activity {
+        border-top-color: #663399;    
+        border-left-color: #663399;    
+    }
+</style>  
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "6ceb1da1"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="mongoose," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Schema一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力。 如何定义Schema12345678//new Schema()中传入一个JSON对象，该对象形如 xxx:yyyy//xxx是一个字符串，定义了属性，yyy是一个Schema.Type，定义了属性类型var CustomerSchema = new Schema(&amp;#123;    CustomerName: String">
+<meta name="keywords" content="mongoose">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mongoose学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/05/06/Mongoose学习笔记/index.html">
+<meta property="og:site_name" content="Choastlove Blog">
+<meta property="og:description" content="Schema一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力。 如何定义Schema12345678//new Schema()中传入一个JSON对象，该对象形如 xxx:yyyy//xxx是一个字符串，定义了属性，yyy是一个Schema.Type，定义了属性类型var CustomerSchema = new Schema(&amp;#123;    CustomerName: String">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-09T05:11:53.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mongoose学习笔记">
+<meta name="twitter:description" content="Schema一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力。 如何定义Schema12345678//new Schema()中传入一个JSON对象，该对象形如 xxx:yyyy//xxx是一个字符串，定义了属性，yyy是一个Schema.Type，定义了属性类型var CustomerSchema = new Schema(&amp;#123;    CustomerName: String">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/05/06/Mongoose学习笔记/"/>
+
+
+
+
+
+
+
+  <title>Mongoose学习笔记 | Choastlove Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Choastlove Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/06/Mongoose学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Choastlove">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Choastlove Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Mongoose学习笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-06T19:30:00+08:00">
+                2018-05-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MongoDB/" itemprop="url" rel="index">
+                    <span itemprop="name">MongoDB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h5 id="Schema"><a href="#Schema" class="headerlink" title="Schema"></a>Schema</h5><p>一种以文件形式存储的数据库模型骨架，不具备数据库的操作能力。</p>
+<h6 id="如何定义Schema"><a href="#如何定义Schema" class="headerlink" title="如何定义Schema"></a>如何定义Schema</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//new Schema()中传入一个JSON对象，该对象形如 xxx:yyyy</span></span><br><span class="line"><span class="comment">//xxx是一个字符串，定义了属性，yyy是一个Schema.Type，定义了属性类型</span></span><br><span class="line"><span class="keyword">var</span> CustomerSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    CustomerName: <span class="built_in">String</span>,</span><br><span class="line">    CarNum: <span class="built_in">String</span>,</span><br><span class="line">    CustomerID: <span class="built_in">Number</span>,</span><br><span class="line">    CarID: <span class="built_in">Number</span>、</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>关于Schema.Types</p>
+</blockquote>
+<p>NodeJS中的基本数据类型都属于Schema.Type，另外Mongoose还定义了自己的类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//举例：</span></span><br><span class="line">   <span class="keyword">var</span> ExampleSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">     name:<span class="built_in">String</span>,</span><br><span class="line">     binary:Buffer,</span><br><span class="line">     living:<span class="built_in">Boolean</span>,</span><br><span class="line">     updated:<span class="built_in">Date</span>,</span><br><span class="line">     age:<span class="built_in">Number</span>,</span><br><span class="line">     mixed:Schema.Types.Mixed, <span class="comment">//该混合类型等同于nested</span></span><br><span class="line">     _id:Schema.Types.ObjectId,  <span class="comment">//主键</span></span><br><span class="line">     _fk:Schema.Types.ObjectId,  <span class="comment">//外键</span></span><br><span class="line">     array:[],</span><br><span class="line">     arrOfString:[<span class="built_in">String</span>],</span><br><span class="line">     arrOfNumber:[<span class="built_in">Number</span>],</span><br><span class="line">     arrOfDate:[<span class="built_in">Date</span>],</span><br><span class="line">     arrOfBuffer:[Buffer],</span><br><span class="line">     arrOfBoolean:[<span class="built_in">Boolean</span>],</span><br><span class="line">     arrOfMixed:[Schema.Types.Mixed],</span><br><span class="line">     arrOfObjectId:[Schema.Types.ObjectId]</span><br><span class="line">     nested:&#123;</span><br><span class="line">       stuff:<span class="built_in">String</span>,</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h5><p>由Schema发布生成的模型，具有抽象属性和行为的数据库操作对。</p>
+<h5 id="Entity"><a href="#Entity" class="headerlink" title="Entity"></a>Entity</h5><p>由Model创建的实体，他的操作也会影响数据库</p>
+<h5 id="如何通过node操作mongoDB"><a href="#如何通过node操作mongoDB" class="headerlink" title="如何通过node操作mongoDB"></a>如何通过node操作mongoDB</h5><blockquote>
+<p>Mongoose库简而言之就是在node环境中操作MongoDB数据库的一种便捷的封装，一种对象模型工具，类似ORM，Mongoose将数据库中的数据转换为JavaScript对象以供你在应用中使用。</p>
+</blockquote>
+<p>MongoDB是目前最流行的noSQL数据库之一，它是专为node.js而开发的，理解下与我们常用的RDBMS关系型数据库的区别就可以基本使用了。</p>
+<h6 id="MongoDB中有三个基本的概念区别于RDBMS"><a href="#MongoDB中有三个基本的概念区别于RDBMS" class="headerlink" title="MongoDB中有三个基本的概念区别于RDBMS"></a>MongoDB中有三个基本的概念区别于RDBMS</h6><ol>
+<li>数据库：数据库是一个物理容器集合。每个数据库都有自己的一套文件系统上的文件。一个单一的MongoDB服务器通常有多个数据库。</li>
+<li>集合：集合是一组MongoDB的文档。它相当于一个RDBMS表。收集存在于一个单一的数据库。集合不执行模式。集合内的文档可以有不同的领域。通常情况下，一个集合中的所有文件是相同或相关的目的</li>
+<li>文档：文档是一组键 - 值对。文件动态模式。动态模式是指，在相同集合中的文档不需要具有相同的字段或结构组的公共字段的集合的文档，可以容纳不同类型的数据。</li>
+</ol>
+<h6 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h6><p>安装mongoose后，引入模块连接到本地的mongodb的test表，这里要注意了，mongo数据库是运行状态。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接字符串格式为mongodb://主机/数据库名</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/Customer'</span>);</span><br></pre></td></tr></table></figure></p>
+<h6 id="存储数据"><a href="#存储数据" class="headerlink" title="存储数据"></a>存储数据</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 连接字符串格式为mongodb://主机/数据库名</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/Customer'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Schema = mongoose.Schema;</span><br><span class="line"><span class="comment">//骨架模版</span></span><br><span class="line"><span class="keyword">var</span> CustomerSchema = <span class="keyword">new</span> Schema(&#123;</span><br><span class="line">    CustomerName   : <span class="built_in">String</span>,</span><br><span class="line">    CustomerID    : <span class="built_in">String</span>,</span><br><span class="line">    CustomerPhoneNum : <span class="built_in">String</span>,</span><br><span class="line">    CarID  : <span class="built_in">String</span>,</span><br><span class="line">    CarNum     : <span class="built_in">String</span>,</span><br><span class="line">    Sex  : <span class="built_in">String</span>,</span><br><span class="line">    AddTime   : <span class="built_in">String</span>,</span><br><span class="line">    AddFrom    : <span class="built_in">String</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//模型</span></span><br><span class="line"><span class="keyword">var</span> Customer = mongoose.model(<span class="string">'Customer'</span>, CustomerSchema);</span><br><span class="line"><span class="comment">//存储数据</span></span><br><span class="line"><span class="keyword">var</span> customer = <span class="keyword">new</span> Customer(&#123;</span><br><span class="line">    CustomerName: <span class="string">'何自豪'</span>,</span><br><span class="line">    CustomerID: <span class="string">'54b8c6f961f54b39a5ea189185f91396'</span>,</span><br><span class="line">    CustomerPhoneNum: <span class="string">'15655029662'</span>,</span><br><span class="line">    CarID: <span class="string">'4e2634171323461ea7b63c64853dbafb'</span>,</span><br><span class="line">    CarNum: <span class="string">'皖A23232'</span>,</span><br><span class="line">    Sex: <span class="string">'male'</span>,</span><br><span class="line">    AddTime: <span class="string">'2018-05-10 14:41:20'</span>,</span><br><span class="line">    AddFrom: <span class="string">'Web'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//保存数据库</span></span><br><span class="line">customer.save(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'保存失败'</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Success'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>流程就是：通过Schema创建一个模式CustomerSchema ,通过模式通过Schema创建一个模式CustomerSchema创建一个模型Customer，通过模型Customer写入数据，通过save方法保存</p>
+<h6 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h6><blockquote>
+<p>Model.find({},{},{},cb)</p>
+</blockquote>
+<ul>
+<li>conditions «Object»</li>
+<li>[projection] «Object» optional fields to return (<a href="http://bit.ly/1HotzBo" target="_blank" rel="noopener">http://bit.ly/1HotzBo</a>)</li>
+<li>[options] «Object» optional see Query.prototype.setOptions()</li>
+<li>[callback] «Function»</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Customer.find(&#123;&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">err,docs</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(err)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'查询失败'</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'Success'</span>)</span><br><span class="line">        <span class="built_in">console</span>.log(docs)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>返回的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[&#123; <span class="attr">_id</span>: <span class="number">5</span>af406aa60c5e816f0ca13f5,</span><br><span class="line">   CustomerName: <span class="string">'何自豪'</span>,</span><br><span class="line">   CustomerID: <span class="string">'54b8c6f961f54b39a5ea189185f91396'</span>,</span><br><span class="line">   CustomerPhoneNum: <span class="string">'15655029662'</span>,</span><br><span class="line">   CarID: <span class="string">'4e2634171323461ea7b63c64853dbafb'</span>,</span><br><span class="line">   CarNum: <span class="string">'皖A23232'</span>,</span><br><span class="line">   Sex: <span class="string">'male'</span>,</span><br><span class="line">   AddTime: <span class="string">'2018-05-10 14:41:20'</span>,</span><br><span class="line">   AddFrom: <span class="string">'Web'</span>,</span><br><span class="line">   __v: <span class="number">0</span> &#125;]</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Model.findbyId()  </p>
+</blockquote>
+<p>通过MongoDB的特殊的_id健进行查询。这个 _id 键的值是经过特殊计算的长度为 24 的字符串的 ObjectId 对象。因此保证了每个文档的 _id 都是独一无二的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取ObjectID对象</span></span><br><span class="line"><span class="keyword">var</span> ObjectID = <span class="built_in">require</span>(<span class="string">'mongodb'</span>).ObjectID;</span><br><span class="line">Model.findbyId(ObjectID(_ID))</span><br></pre></td></tr></table></figure>
+<h6 id="更新数据"><a href="#更新数据" class="headerlink" title="更新数据"></a>更新数据</h6><h6 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h6>
+      
+    </div>
+    
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:12px;">-------------我也是有底线的-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/mongoose/" rel="tag"><i class="fa fa-tag"></i> mongoose</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/03/React数据请求/" rel="next" title="React数据请求">
+                <i class="fa fa-chevron-left"></i> React数据请求
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/06/22/浏览器相关线程/" rel="prev" title="浏览器相关线程">
+                浏览器相关线程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="Choastlove" />
+            
+              <p class="site-author-name" itemprop="name">Choastlove</p>
+              <p class="site-description motion-element" itemprop="description">Web</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schema"><span class="nav-number">1.</span> <span class="nav-text">Schema</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#如何定义Schema"><span class="nav-number">1.1.</span> <span class="nav-text">如何定义Schema</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Model"><span class="nav-number">2.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Entity"><span class="nav-number">3.</span> <span class="nav-text">Entity</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如何通过node操作mongoDB"><span class="nav-number">4.</span> <span class="nav-text">如何通过node操作mongoDB</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#MongoDB中有三个基本的概念区别于RDBMS"><span class="nav-number">4.1.</span> <span class="nav-text">MongoDB中有三个基本的概念区别于RDBMS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#连接数据库"><span class="nav-number">4.2.</span> <span class="nav-text">连接数据库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#存储数据"><span class="nav-number">4.3.</span> <span class="nav-text">存储数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#查询数据"><span class="nav-number">4.4.</span> <span class="nav-text">查询数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#更新数据"><span class="nav-number">4.5.</span> <span class="nav-text">更新数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除数据"><span class="nav-number">4.6.</span> <span class="nav-text">删除数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Choastlove</span>
+
+  
+</div>
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+    本站访客数:<span id="busuanzi_value_site_pv"></span>
+  </span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+<script type="text/javascript" src="/js/src/love.js"></script>
+</html>
